@@ -1,5 +1,4 @@
 # Ignore compiled Java classes
 *.class
 .gitignore
-*
 !.java
