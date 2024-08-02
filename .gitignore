@@ -1,2 +1,3 @@
-# ignore .class
-.class
+# Ignore compiled Java classes
+*.class
+.gitignore
