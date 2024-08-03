@@ -37,7 +37,7 @@ public class First {
 				System.out.print(col.ANSI_GREEN+"\n\nEnter any one of the choice: "+col.ANSI_RESET);
 				choice = sc.nextLine();
 				
-				System.out.println("\n\n---------------------------------------------\n");
+				System.out.println("\n\n-------------------------------------\n");
 			
 			//taking input for CRUD operations.
 				switch(choice.toUpperCase()) {
@@ -93,7 +93,7 @@ class CRUDproj{
 	System.out.print(col.ANSI_PURPLE+"Enter deadline date of the project(in months): "+col.ANSI_RESET);
 	pname=sc.nextLine();
 	
-	System.out.println("\n--------------------------------------------------------------------------");
+	System.out.println("\n-------------------------------------");
 	 }
 	 
 	 //to update any project information
@@ -143,7 +143,7 @@ class CRUDproj{
 			
 		
 			
-			System.out.println("\n--------------------------------------------------------------------------");
+			System.out.println("\n-------------------------------------");
 			 
 	 }
 	 
