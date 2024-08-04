@@ -9,6 +9,7 @@ import jproj.Concolrs;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 //main class
 public class First {
@@ -90,14 +91,20 @@ class CRUDproj{
 	pname=sc.nextLine();
 	
 	System.out.print(col.ANSI_PURPLE+"Enter description of the project: "+col.ANSI_RESET);
-	pname=sc.nextLine();
+	pdes=sc.nextLine();
 	
 	System.out.println(col.ANSI_PURPLE+"Date of the project:"+col.ANSI_RESET+" "+dateformat.format(curdate));
 	date=dateformat.format(curdate);
+	
 	System.out.print(col.ANSI_PURPLE+"Enter deadline date of the project(in months): "+col.ANSI_RESET);
-	pname=sc.nextLine();
+	deadline=sc.nextLine();
+	
+	System.out.print(col.ANSI_PURPLE+"Enter refrences for the project: "+col.ANSI_RESET);
+	refs=sc.nextLine();
 	
 	System.out.println("\n-------------------------------------");
+	
+	WriteInfo(pname, pdes, date, deadline, refs);
 	 }
 	 
 	 //to update any project information
@@ -155,7 +162,7 @@ class CRUDproj{
 	 public void Lookproj() {
 		 
 		 try{
-			 File myproj = new File("AllProjInfo.txt");
+			 File myproj = new File(Concolrs.FileName);
 			 FileReader filereader = new FileReader(myproj);
 			 
 			 BufferedReader reader = new BufferedReader(filereader);
@@ -177,6 +184,19 @@ class CRUDproj{
 	 public void Delproj() {
 		 System.out.println("Under Devlopment");
 		 
+	 }
+	 
+	 //to write content in the file 
+	 
+	 public void WriteInfo(String pname, String pdes, String date, String deadline, String refs) {
+		 try {
+			 FileWriter fw = new FileWriter(Concolrs.FileName);
+			 fw.write("Project name: "+pname+"\nProject Description: "+pdes+"\nStarting Date: "+date+"\nDeadline of project "+pname+" :"+deadline+"\nRefrences for the Project: "+refs);
+			 fw.close();
+		 }
+		 catch(Exception e) {
+			 System.out.println(e);
+		 }
 	 }
 	 
 	 
