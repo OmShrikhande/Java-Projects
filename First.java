@@ -190,9 +190,12 @@ class CRUDproj{
 	 
 	 public void WriteInfo(String pname, String pdes, String date, String deadline, String refs) {
 		 try {
+			 File file = new File(Concolrs.FileName);
 			 FileWriter fw = new FileWriter(Concolrs.FileName);
 			 fw.write("Project name: "+pname+"\nProject Description: "+pdes+"\nStarting Date: "+date+"\nDeadline of project "+pname+" :"+deadline+"\nRefrences for the Project: "+refs);
 			 fw.close();
+			 
+			 System.out.println("Information added to: "+file.getAbsolutePath());
 		 }
 		 catch(Exception e) {
 			 System.out.println(e);
