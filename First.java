@@ -1,10 +1,14 @@
 package jproj;
 
 //import section
-import java.util.Scanner;
+import java.util.Scanner; 
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import jproj.Concolrs;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 //main class
 public class First {
@@ -149,7 +153,24 @@ class CRUDproj{
 	 
 	 //to see the projects that i have 
 	 public void Lookproj() {
-		 System.out.println("Under Devlopment");
+		 
+		 try{
+			 File myproj = new File("AllProjInfo.txt");
+			 FileReader filereader = new FileReader(myproj);
+			 
+			 BufferedReader reader = new BufferedReader(filereader);
+			 
+			 String line = null;
+			 
+			 while((line =reader.readLine())!= null) {
+				 System.out.println(line);
+			 }
+			 
+			 reader.close();
+		 }
+		 catch(Exception e) {
+			 System.out.println(e);
+		 }
 	 }
 	 
 	 //to delete any project
@@ -157,4 +178,6 @@ class CRUDproj{
 		 System.out.println("Under Devlopment");
 		 
 	 }
+	 
+	 
 }
