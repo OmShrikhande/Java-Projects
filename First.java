@@ -182,7 +182,45 @@ class CRUDproj{
 	 
 	 //to delete any project
 	 public void Delproj() {
-		 System.out.println("Under Devlopment");
+		  Scanner scanner = new Scanner(System.in);
+
+	        // Get the current directory
+	        String currentDirectoryPath = System.getProperty("user.dir");
+	        File currentDirectory = new File(currentDirectoryPath);
+
+	        System.out.print("Enter the file name to search and delete: ");
+	        String fileName = scanner.nextLine();
+
+	        File fileToDelete = new File(currentDirectory, fileName);
+	        if (!fileToDelete.exists() || !fileToDelete.isFile()) {
+	            System.out.println("File not found.");
+	            return;
+	        }
+
+	        System.out.print("Are you sure you want to delete this file? (yes/no): ");
+	        String confirmation = scanner.nextLine();
+	        if (confirmation.equalsIgnoreCase("yes")) {
+	            if (fileToDelete.delete()) {
+	                System.out.println("File deleted successfully.");
+	            } else {
+	                System.out.println("Failed to delete the file.");
+	            }
+	        } else {
+	            System.out.println("File deletion cancelled.");
+	        }
+
+	        // List remaining files in the current directory in red color
+	        File[] files = currentDirectory.listFiles();
+	        if (files != null) {
+	            System.out.println("Remaining files in the directory:");
+	            for (File file : files) {
+	                if (file.isFile()) {
+	                    System.out.println("\033[31m" + file.getName() + "\033[0m");
+	                }
+	            }
+	        } else {
+	            System.out.println("Failed to list files in the directory.");
+	        }
 		 
 	 }
 	 
